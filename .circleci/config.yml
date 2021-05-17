@@ -14,7 +14,7 @@ jobs:
           cd container
           yarn install
           yarn build
-
+      - aws-cli/install
       - run: |
-          aws s3 sync dist s3://$AWS_S3_BUCKET_NAME/container/latest
+          aws s3 sync dist s3://$AWS_S3_BUCKET_NAME/container/latest --acl public-read
 
